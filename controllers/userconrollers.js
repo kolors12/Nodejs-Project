@@ -39,6 +39,50 @@ router.get('/allusers', async (req, res) => {
 
 })
 
+router.get('/getuserbyid/:id', async (req,res) => {
+
+    try {
+        const getallusers = await Users.findById(req.params.id);
+        return res.json(getallusers);
+
+    } catch (err) {
+        console.log(err.message);
+    }
+
+})
+
+router.delete('/deleteuser/:id', async (req,res) => {
+
+    console.log(req.params);
+
+    try {
+        await  Users.findByIdAndDelete(req.params.id);
+        return res.json(await Users.find());
+
+    } catch (err) {
+        console.log(err.message);
+    }
+
+})
+
+///////////////////-----Update-----////////////////////
+
+router.put('/updateuser/:id',async(req,res)=>{
+
+    try{
+        const id = req.params.id;
+        const updates =req.body;
+        const options ={new:true};
+        await Users.findByIdAndUpdate(id,updates,options);
+        return res.json(await Users.find())
+    }catch{
+         console.log(err.message);     
+    }
+
+})
+
+
+
 
 
 module.exports = router;
