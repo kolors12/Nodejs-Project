@@ -14,6 +14,7 @@ app.use(express.json())
 //////// controllers import////////////
 const user = require('./controllers/userconrollers');
 const role = require('./controllers/rolecontroller');
+const product = require('./controllers/productcontroller');
 
 
 
@@ -24,5 +25,5 @@ app.get('/',(req,res)=>{
 
 app.use('/users',user);
 app.use('/roles',role);
-
+app.use('/products',product)
 app.listen(port,()=>console.log("Server Running" + " http://localhost:" + port))
