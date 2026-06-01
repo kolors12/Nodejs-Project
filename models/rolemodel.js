@@ -13,6 +13,19 @@ const RoleSchema = new mongoose.Schema({
         required:true 
         
     },
+    address : {
+
+        type : String,
+        required:true 
+        
+    },
+
+     rolenumber : {
+
+        type : String,
+        required:true 
+        
+    },
     date: {
         type:Date,
         default :Date.now

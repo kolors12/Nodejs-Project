@@ -2,7 +2,7 @@ const express = require ('express');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
-let port = process.env.PORT || 9999;
+let port = process.env.PORT || 1111;
 
 /////////data base import//////
 
@@ -27,4 +27,5 @@ app.use('/users',user);
 app.use('/roles',role);
 app.use('/products',product)
 app.use('/category', categorys)
+
 app.listen(port,()=>console.log("Server Running" + " http://localhost:" + port))
