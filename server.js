@@ -16,7 +16,7 @@ const user = require('./controllers/userconrollers');
 const role = require('./controllers/rolecontroller');
 const product = require('./controllers/productcontroller');
 const categorys = require('./controllers/categorycontroller');
-
+const bike = require('./controllers/bikecontrollers');
 
 app.get('/',(req,res)=>{
     res.send('Hello Suggu');
@@ -25,7 +25,8 @@ app.get('/',(req,res)=>{
 
 app.use('/users',user);
 app.use('/roles',role);
-app.use('/products',product)
-app.use('/category', categorys)
+app.use('/products',product);
+app.use('/category', categorys);
+app.use('/bikes',bike);
 
 app.listen(port,()=>console.log("Server Running" + " http://localhost:" + port))
