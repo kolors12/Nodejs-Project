@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 
 const BikeSchema = new mongoose.Schema({
 
-    username : {
+    bikename : {
         type: String,
         required:true 
     },
-    useremail : {
+    bikemodel : {
         type: String,
         required:true 
     },
-    userphone : {
+    bikerange : {
         type: String,
         required:true 
     },
-    useraddress : {
+    bikecapacty : {
         type: String,
         required:true 
     },

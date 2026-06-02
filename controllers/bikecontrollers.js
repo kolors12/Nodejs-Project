@@ -12,19 +12,33 @@ router.get('/', (req, res) => {
 
 
 
-router.post('/addusers', async (req, res) => {
+router.post('/addbikes', async (req, res) => {
 
-    let userroles = req.body;
-
+    let bikemodels = req.body;
+    //console.log(bikemodels);
     try {
-        const user = new Users(userroles);
-        await user.save();
-        res.send(user)
+        const bike = new Bikes(bikemodels);
+        await bike.save();
+        res.send(bike)
 
     } catch (err) {
         console.log(err.message)
     }
 
+
+})
+
+
+router.get('/allbikes', async (req, res) => {
+
+    try {
+        const getallbikes = await Bikes.find();
+        //console.log(getallbikes);
+        return res.json(getallbikes);
+
+    } catch (err) {
+        console.log(err.message);
+    }
 
 })
 
