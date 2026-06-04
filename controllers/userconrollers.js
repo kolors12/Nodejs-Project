@@ -4,28 +4,52 @@ const router = express.Router();
 const Users = require('../models/usermodel')
 
 
-router.get('/', (req, res) => {
+// router.get('/', (req, res) => {
 
-    res.send('suggu');
+//     res.send('suggu');
+// })
+
+router.get('/',(req,res)=>{
+ 
+    res.render('index',{title: "Registration form"})
 })
 
+// router.post('/addusers', async (req, res) => {
+
+//     let userroles = req.body;
+
+//     try {
+//         const user = new Users(userroles);
+//         await user.save();
+//         res.send(user)
+
+//     } catch (err) {
+//         console.log(err.message)
+//     }
 
 
-router.post('/addusers', async (req, res) => {
+// })
 
-    let userroles = req.body;
-
-    try {
+router.post('/addusers',async(req,res)=>{
+       let userroles = req.body;
+        try {
         const user = new Users(userroles);
         await user.save();
-        res.send(user)
-
-    } catch (err) {
+        req.flash('success', 'Detasil Successfully Created ...!');
+        
+        //res.send(result)
+       // res.send('add user')
+       res.redirect('/users');
+    }catch (err) {
         console.log(err.message)
     }
 
-
+    
 })
+
+
+
+
 
 router.get('/allusers', async (req, res) => {
 
